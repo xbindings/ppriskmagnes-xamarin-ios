@@ -63,6 +63,7 @@
         <ObjcBindingApiDefinition Include="../source/ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Xamarin.Swift" Version="1.0.11" />
         <PackageReference Include="Xamarin.Build.Download" Version="0.11.3" PrivateAssets="None" />
     </ItemGroup>
 </Project>
