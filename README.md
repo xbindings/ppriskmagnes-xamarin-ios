@@ -21,6 +21,11 @@ Install-Package PPRiskMagnes.iOS
 
 This library is created to be used by other binding library. 
 
+### Check nupkg
+```
+nuget install PPRiskMagnes.iOS -Source "$PWD" -Source "https://api.nuget.org/v3/index.json" -OutputDirectory packages
+```
+
 ## License
 
 **tuyen-vuduc is not responsible for, nor does it grant any licenses to, third-party packages. Some packages may require or install dependencies which are governed by additional licenses.**

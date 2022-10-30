@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>PPRiskMagnes.iOS</id>
+    <version>5.4.0</version>
+    <title>PPRiskMagnes iOS</title>
+    <authors>tuyen</authors>
+    <license type="file">LICENSE</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <projectUrl>https://github.com/NAXAM/paypal-ppriskmagnes-ios-binding</projectUrl>
+    <iconUrl>https://avatars.githubusercontent.com/u/476675?s=200</iconUrl>
+    <description>C# bindings for PPRiskMagnes iOS</description>
+    <copyright>© tuyen-vuduc. All rights reserved.</copyright>
+    <dependencies>
+      <group targetFramework="Xamarin.iOS1.0">
+        <dependency id="Xamarin.Build.Download" version="0.11.3" include="All" />
+        <dependency id="Xamarin.Swift" version="1.0.11" include="All" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="mscorlib" targetFramework="Xamarin.iOS1.0" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="Xamarin.iOS1.0" />
+      <frameworkAssembly assemblyName="System" targetFramework="Xamarin.iOS1.0" />
+      <frameworkAssembly assemblyName="System.Numerics" targetFramework="Xamarin.iOS1.0" />
+      <frameworkAssembly assemblyName="System.Numerics.Vectors" targetFramework="Xamarin.iOS1.0" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="Xamarin.iOS1.0" />
+      <frameworkAssembly assemblyName="Xamarin.iOS" targetFramework="Xamarin.iOS1.0" />
+    </frameworkAssemblies>
+  </metadata>
+
+  <files>
+    <file src=".\LICENSE" target="LICENSE" />
+
+    <file src="PPRiskMagnes.iOS\PPRiskMagnes.iOS.targets" target="build\PPRiskMagnes.iOS.targets" />
+    <file src="PPRiskMagnes.iOS\PPRiskMagnes.iOS.targets" target="buildTransitive\PPRiskMagnes.iOS.targets" />
+
+    <file src="frameworks\PPRiskMagnes.xcframework\**" target="lib\xamarinios10\PPRiskMagnes.iOS.resources\PPRiskMagnes.xcframework" />
+    <file src="manifest" target="lib\xamarinios10\PPRiskMagnes.iOS.resources\manifest" />
+    <file src="PPRiskMagnes.iOS\bin\Release\PPRiskMagnes.iOS.dll" target="lib\xamarinios10\PPRiskMagnes.iOS.dll" />
+  </files>
+</package>

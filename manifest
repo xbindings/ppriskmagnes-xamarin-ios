@@ -1,0 +1,12 @@
+﻿<BindingAssembly>
+	<NativeReference Name="PPRiskMagnes.xcframework">
+		<_Id>PPRiskMagnes</_Id>
+		<ForceLoad>True</ForceLoad>
+		<Frameworks></Frameworks>
+		<IsCxx></IsCxx>
+		<Kind>Framework</Kind>
+		<NeedsGccExceptionHandling></NeedsGccExceptionHandling>
+		<SmartLink>True</SmartLink>
+		<WeakFrameworks></WeakFrameworks>
+	</NativeReference>
+</BindingAssembly>

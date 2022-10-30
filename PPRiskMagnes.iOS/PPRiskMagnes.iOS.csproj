@@ -1,69 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Xamarin.Legacy.Sdk">
-    <PropertyGroup>
-        <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
-        <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>true</ImplicitUsings>
-        <IsBindingProject>true</IsBindingProject>
-        <NoBindingEmbedding>true</NoBindingEmbedding>
-        <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
-        <RootNamespace>PPRiskMagnes</RootNamespace>
-        <AssemblyName>PPRiskMagnes.iOS</AssemblyName>
-        <AssemblyVersion>5.4.0</AssemblyVersion>
-        <FileVersion>5.4.0</FileVersion>
-        <AssemblyInformationalVersion>5.4.0</AssemblyInformationalVersion>
-        <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
-    <PropertyGroup>
-        <PackageId>PPRiskMagnes.iOS</PackageId>
-        <Title>PPRiskMagnes iOS</Title>
-        <Summary>C# bindings for PPRiskMagnes iOS</Summary>
-        <Description>C# bindings for PPRiskMagnes iOS</Description>
-        <Authors>tuyen</Authors>
-        <Owners>tuyen</Owners>
-        <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
-        <PackageIconUrl>https://avatars.githubusercontent.com/u/476675?s=200</PackageIconUrl>
-        <PackageProjectUrl>https://github.com/NAXAM/paypal-ppriskmagnes-ios-binding</PackageProjectUrl>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <PackageVersion>5.4.0</PackageVersion>
-    </PropertyGroup>
-    <ItemGroup>
-        <Folder Include="Resources\" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Include="PPRiskMagnes.iOS.targets" Pack="True" PackagePath="build/PPRiskMagnes.iOS.targets" />
-        <None Include="PPRiskMagnes.iOS.targets" Pack="True" PackagePath="buildTransitive/PPRiskMagnes.iOS.targets" />
-        <None Include="..\LICENSE" Pack="True" PackagePath="" />
-    </ItemGroup>
-    <!-- An iOS app project cannot find Xcframeworks within a NuGet if a TFM
-         previous than net6.0-ios is used.
-         https://github.com/xamarin/xamarin-macios/issues/13693
-         You must include the Xcframework's NativeReference tag into the iOS app
-         project so sidecar can work properly. -->
-    <!-- This workaround was designed like this to have the same
-         NativeReference tag for the iOS binding and for the .targets file -->
-    <Import Project="PPRiskMagnes.iOS.targets" />
-    <ItemGroup>
-        <_NativeReference Include="../frameworks/PPRiskMagnes.xcframework">
-            <_Id>$(_PPRiskMagnesId)</_Id>
-        </_NativeReference>
-    </ItemGroup>
-    <!-- End of workaround -->
-    <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
-        <Compile Remove="../source/ApiDefinition.cs" />
-        <Compile Remove="../source/Structs.cs" />
-    </ItemGroup>
-    <ItemGroup>
-        <ObjcBindingCoreSource Include="../source/Structs.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
-    </ItemGroup>
-    <ItemGroup>
-        <ObjcBindingApiDefinition Include="../source/ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="Xamarin.Swift" Version="1.0.11" />
-        <PackageReference Include="Xamarin.Build.Download" Version="0.11.3" PrivateAssets="None" />
-    </ItemGroup>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{A156FB75-3621-491E-A5F9-87C5F453501A}</ProjectGuid>
+    <TemplateGuid>{b6f3ff35-79b2-4f25-a2fc-60a7cf61013b}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PPRiskMagnes</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>PPRiskMagnes.iOS</AssemblyName>
+    <AssemblyVersion>5.4.0</AssemblyVersion>
+    <FileVersion>5.4.0</FileVersion>
+    <AssemblyInformationalVersion>5.4.0</AssemblyInformationalVersion>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <PackageId>PPRiskMagnes.iOS</PackageId>
+    <Title>PPRiskMagnes iOS</Title>
+    <Summary>C# bindings for PPRiskMagnes iOS</Summary>
+    <Description>C# bindings for PPRiskMagnes iOS</Description>
+    <Authors>tuyen</Authors>
+    <Owners>tuyen</Owners>
+    <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
+    <PackageIconUrl>https://avatars.githubusercontent.com/u/476675?s=200</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/NAXAM/paypal-ppriskmagnes-ios-binding</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageVersion>5.4.0</PackageVersion>
+</PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+      <None Include="PPRiskMagnes.iOS.targets" Pack="True" PackagePath="build/PPRiskMagnes.iOS.targets" />
+      <None Include="PPRiskMagnes.iOS.targets" Pack="True" PackagePath="buildTransitive/PPRiskMagnes.iOS.targets" />
+      <None Include="..\LICENSE" Pack="True" PackagePath="" />
+  </ItemGroup>
+  <Import Project="PPRiskMagnes.iOS.targets" />
+  <ItemGroup>
+    <_NativeReference Include="../frameworks/PPRiskMagnes.xcframework">
+        <_Id>$(_PPRiskMagnesId)</_Id>
+    </_NativeReference>
+</ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="../source/ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="../source/Structs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+      <PackageReference Include="Xamarin.Swift" Version="1.0.11" />
+      <PackageReference Include="Xamarin.Build.Download" Version="0.11.3" PrivateAssets="None" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
