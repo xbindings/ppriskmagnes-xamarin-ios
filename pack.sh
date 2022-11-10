@@ -1,8 +1,7 @@
 rm -rf PPRiskMagnes.iOS/bin
 rm -rf PPRiskMagnes.iOS/obj
 
-dotnet clean
-dotnet restore
-dotnet build -c Release PPRiskMagnes.iOS/PPRiskMagnes.iOS.csproj
+dotnet nuget locals -c all
 
-mv PPRiskMagnes.iOS/bin/Release/PPRiskMagnes.iOS*.nupkg nugets/
+msbuild -t:Clean,Rebuild -p:Configuration=Release ppriskmagnes-ios.sln
+nuget pack PPRiskMagnes.iOS/PPRiskMagnes.iOS.csproj -Prop Configuration=Release -OutputDirectory nugets -Version 5.4.0
